@@ -1,0 +1,14 @@
+﻿@using Vidly.Models;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List Customer</h2>
+@foreach(var customer in Model)
+{
+    <tr>
+        <td>@customer.Name</td>
+        <td>@customer.MemberShipType.Discount</td>
+    </tr>
+}
+

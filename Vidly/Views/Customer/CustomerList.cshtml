@@ -1,0 +1,25 @@
+﻿@using Vidly.Models;
+
+@{
+    ViewBag.Title = "Customers";
+}
+<h2>@ViewBag.Title.</h2>
+
+
+
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Membership Type</td>
+        <td>Discount Rate</td>
+    </tr>
+
+    @foreach (Customer customer in ViewBag.Customers)
+    {
+        <tr>
+            <td><a href="/Customer/CustomerDetail/@customer.Id">@customer.Name</a></td>
+            <td>@customer.MemberShipType.Name</td>
+            <td>@customer.MemberShipType.Discount%</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,24 @@
+﻿@using Vidly.Models
+
+@{ 
+    ViewBag.Title = "MovieList";
+}
+
+<h2>List Movies: </h2>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Genre</td>
+        <td>Year</td>
+    </tr>
+    @foreach(var movie in ViewBag.Movies)
+    { 
+            <tr>
+                <td>@movie.Id</td>
+                <td><a href="/Movie/MovieDetail/@movie.Id">@movie.Name</a></td>
+                <td>@movie.Genre</td>
+                <td>@movie.Year</td>
+            </tr>
+    }
+</table>
