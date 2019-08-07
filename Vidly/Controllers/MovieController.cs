@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
     public class MovieController : Controller
     {
-        protected ApplicationDbContext _context;
+        private ApplicationDbContext _context;
 
         public MovieController()
         {
@@ -29,7 +30,7 @@ namespace Vidly.Controllers
 
         public ActionResult MovieList()
         {
-            var movies = _context.Movies.ToList();
+            var movies = _context.Movies.Include(c => c.Genre).ToList();
 
             ViewBag.Movies = movies;
 
@@ -47,6 +48,65 @@ namespace Vidly.Controllers
             }
 
             return View("MovieDetail");
+        }
+
+        public ActionResult NewMovie()
+        {
+            var genres = _context.Genres.ToList();
+
+            ViewBag.Genres = genres;
+
+            return View("MovieForm");
+        }
+
+        [HttpPost]
+        public ActionResult MovieSaving(Movie movie)
+        {
+            //if (!ModelState.IsValid)
+            //{
+            //    var genres = _context.Genres.ToList();
+
+            //    ViewBag.Genres = genres;
+            //    ViewBag.Movie = movie;
+
+            //    return View("MovieForm", movie);
+            //}
+         
+                if (movie.Id == 0)
+                {
+                    if (movie.GenreId != null)
+                        movie.Genre = _context.Genres.Single(c => c.Id == movie.GenreId);
+                    _context.Movies.Add(movie);
+                }
+                else
+                {
+                    var movieInDb = _context.Movies.Single(c => c.Id == movie.Id);
+
+                    movieInDb.Genre = movie.Genre;
+                    movieInDb.GenreId = movie.GenreId;
+                    movieInDb.Name = movie.Name;
+                    movieInDb.ReleaseDate = movie.ReleaseDate;
+                    movieInDb.NumInStock = movie.NumInStock;
+                }
+
+                _context.SaveChanges();
+
+                return RedirectToAction("MovieList", "Movie");
+
+        }
+        
+
+        public ActionResult MovieEdit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+            var genres = _context.Genres.ToList();
+
+            if (movie == null)
+                return HttpNotFound();
+
+            ViewBag.Movie = movie;
+            ViewBag.Genres = genres;
+            return View("MovieForm", movie);
         }
     }
 }

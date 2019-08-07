@@ -1,15 +1,25 @@
-﻿@using Vidly.Models;
+﻿@using System.Web.UI.WebControls
+@using Vidly.Models;
 
 @{
     ViewBag.Title = "Customer Detail";
 }
-}
+
 
 <h2>@ViewBag.Customer.Name</h2>
 <ul>
     @if (ViewBag.Customer.Bith != null)
     {
-        <li>Date of Birth: @ViewBag.Customer.Bith</li>
+        <li>Date of Birth: @ViewBag.Customer.Bith.Date.ToString("dd-MMM-yyyy")</li>
     }
-    <li>@ViewBag.Customer.MemberShipType.Name</li>
+    @if (ViewBag.Customer.MemberShipType != null)
+    {
+        <li>Membership Type: @ViewBag.Customer.MemberShipType.Name</li>
+    }
+    else
+    {
+        <li>Membership Type have not set yet!!!</li>
+    }
 </ul>
+
+<a href="/Customer/CustomerEdit/@ViewBag.Customer.Id"><button class="btn btn-primary">Edit</button></a>

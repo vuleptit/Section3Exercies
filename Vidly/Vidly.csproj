@@ -235,9 +235,42 @@
     <Compile Include="Migrations\201908060352272_InsertMovieData.Designer.cs">
       <DependentUpon>201908060352272_InsertMovieData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908062241487_AddAndChangeTypeProperty.cs" />
+    <Compile Include="Migrations\201908062241487_AddAndChangeTypeProperty.Designer.cs">
+      <DependentUpon>201908062241487_AddAndChangeTypeProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908062244018_DeleteAllDatas.cs" />
+    <Compile Include="Migrations\201908062244018_DeleteAllDatas.Designer.cs">
+      <DependentUpon>201908062244018_DeleteAllDatas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908062309304_InitGenreData.cs" />
+    <Compile Include="Migrations\201908062309304_InitGenreData.Designer.cs">
+      <DependentUpon>201908062309304_InitGenreData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070203330_ChangeMovieProperties.cs" />
+    <Compile Include="Migrations\201908070203330_ChangeMovieProperties.Designer.cs">
+      <DependentUpon>201908070203330_ChangeMovieProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070217062_ChangeMovieProperties1.cs" />
+    <Compile Include="Migrations\201908070217062_ChangeMovieProperties1.Designer.cs">
+      <DependentUpon>201908070217062_ChangeMovieProperties1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070254256_DeleteMovieDatas.cs" />
+    <Compile Include="Migrations\201908070254256_DeleteMovieDatas.Designer.cs">
+      <DependentUpon>201908070254256_DeleteMovieDatas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070302264_DeleteMovieDatas1.cs" />
+    <Compile Include="Migrations\201908070302264_DeleteMovieDatas1.Designer.cs">
+      <DependentUpon>201908070302264_DeleteMovieDatas1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070348350_addMovieAnnotation.cs" />
+    <Compile Include="Migrations\201908070348350_addMovieAnnotation.Designer.cs">
+      <DependentUpon>201908070348350_addMovieAnnotation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
@@ -306,6 +339,8 @@
     <Content Include="Views\Customer\CustomerDetail.cshtml" />
     <Content Include="Views\Movie\MovieList.cshtml" />
     <Content Include="Views\Movie\MovieDetail.cshtml" />
+    <Content Include="Views\Customer\NewCustomer.cshtml" />
+    <Content Include="Views\Movie\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -368,6 +403,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908060352272_InsertMovieData.resx">
       <DependentUpon>201908060352272_InsertMovieData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908062241487_AddAndChangeTypeProperty.resx">
+      <DependentUpon>201908062241487_AddAndChangeTypeProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908062244018_DeleteAllDatas.resx">
+      <DependentUpon>201908062244018_DeleteAllDatas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908062309304_InitGenreData.resx">
+      <DependentUpon>201908062309304_InitGenreData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070203330_ChangeMovieProperties.resx">
+      <DependentUpon>201908070203330_ChangeMovieProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070217062_ChangeMovieProperties1.resx">
+      <DependentUpon>201908070217062_ChangeMovieProperties1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070254256_DeleteMovieDatas.resx">
+      <DependentUpon>201908070254256_DeleteMovieDatas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070302264_DeleteMovieDatas1.resx">
+      <DependentUpon>201908070302264_DeleteMovieDatas1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070348350_addMovieAnnotation.resx">
+      <DependentUpon>201908070348350_addMovieAnnotation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

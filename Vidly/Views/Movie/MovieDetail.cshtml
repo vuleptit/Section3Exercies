@@ -5,8 +5,11 @@
 }
 
 <h2>@ViewBag.Movie.Name</h2>
+
+
 <ul>
     <li>Name: @ViewBag.Movie.Name</li>
-    <li>Genre: @ViewBag.Movie.Genre</li>
-    <li>Published Year: @ViewBag.Movie.Year</li>
+    <li>Genre: @ViewBag.Movie.GenreId</li>
+    <li>Published Year: @ViewBag.Movie.ReleaseDate.ToString("dd-MMM-yyyy")</li>
 </ul>
+<a href="/Movie/MovieEdit/@ViewBag.Movie.Id"><button class="btn btn-primary">Edit</button></a>

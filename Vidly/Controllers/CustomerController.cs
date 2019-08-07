@@ -49,5 +49,50 @@ namespace Vidly.Controllers
 
             return View("CustomerList");
         }
+
+        public ActionResult NewCustomer()
+        {
+            var memberShipTypes = _context.MemberShipTypes.ToList();
+
+            ViewBag.MemberShipTypes = memberShipTypes;
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+            if (customer.Id == 0)
+            {
+                customer.MemberShipType =
+                    _context.MemberShipTypes.Single(c => c.Id == customer.MemberShipTypeId);
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                customerInDb.Name = customer.Name;
+                customerInDb.Bith = customer.Bith;
+                customerInDb.isSubscribed = customer.isSubscribed;
+                customerInDb.MemberShipTypeId = customer.MemberShipTypeId;
+                customerInDb.MemberShipType = customer.MemberShipType;
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("CustomerList", "Customer");
+        }
+
+        public ActionResult CustomerEdit(int id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            var memberShipTypes = _context.MemberShipTypes.ToList();
+
+            if (customer == null)
+                return HttpNotFound();
+
+            ViewBag.Customer = customer;
+            ViewBag.MemberShipTypes = memberShipTypes;
+            return View("NewCustomer", customer);
+        }
     }
 }

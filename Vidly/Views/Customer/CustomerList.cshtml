@@ -6,7 +6,8 @@
 <h2>@ViewBag.Title.</h2>
 
 
-
+<a href="/Customer/NewCustomer"><button class="btn btn-primary">New Customer</button></a>
+<hr/>
 <table>
     <tr>
         <td>Name</td>
@@ -16,10 +17,19 @@
 
     @foreach (Customer customer in ViewBag.Customers)
     {
-        <tr>
-            <td><a href="/Customer/CustomerDetail/@customer.Id">@customer.Name</a></td>
-            <td>@customer.MemberShipType.Name</td>
-            <td>@customer.MemberShipType.Discount%</td>
-        </tr>
+<tr>
+    <td><a href="/Customer/CustomerDetail/@customer.Id">@customer.Name</a></td>
+    @if (customer.MemberShipType != null)
+    {
+        <td>@customer.MemberShipType.Name</td>
+        <td>@customer.MemberShipType.Discount%</td>
+    }
+    else
+    {
+        <td>null</td>
+        <td>null</td>
+    }
+
+</tr>
     }
 </table>

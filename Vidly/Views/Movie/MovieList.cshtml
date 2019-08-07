@@ -5,20 +5,29 @@
 }
 
 <h2>List Movies: </h2>
+<a href="/Movie/NewMovie"><button class="btn btn-primary">New Movie</button></a>
+<hr/>
 <table>
     <tr>
-        <td>ID</td>
         <td>Name</td>
         <td>Genre</td>
-        <td>Year</td>
+        <td>Released Date</td>
+        <td>Num in Stock</td>
     </tr>
-    @foreach(var movie in ViewBag.Movies)
+    @foreach(Movie movie in ViewBag.Movies)
     { 
             <tr>
-                <td>@movie.Id</td>
                 <td><a href="/Movie/MovieDetail/@movie.Id">@movie.Name</a></td>
-                <td>@movie.Genre</td>
-                <td>@movie.Year</td>
+                @if (@movie.GenreId != null)
+                {
+                    <td>@movie.Genre.Name</td>
+                }
+                else
+                {
+                    <td>null</td>
+                }
+                <td>@movie.ReleaseDate.ToString("dd-MMM-yyyy")</td>
+                <td>@movie.NumInStock</td>
             </tr>
     }
 </table>

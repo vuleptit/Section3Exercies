@@ -1,0 +1,39 @@
+﻿@model Vidly.Models.Customer
+@{
+    ViewBag.Titile = "Register";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Save", "Customer"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bith)
+        @Html.TextBoxFor(m => m.Bith, "{0:dd-MMM-yyyy}", new { @class = "form-control" })
+    </div>
+
+    //if want to create new customer with membershiptype, change membershiptype property in customer to membershiptypeId
+    <div class="form-group">
+        @Html.LabelFor(m => m.MemberShipTypeId)
+        @Html.DropDownListFor(m => m.MemberShipTypeId, new SelectList(ViewBag.MemberShipTypes, "Id", "Name"), "Select membership type", new { @class = "form-control" })
+    </div>
+
+    <div class="form-check">
+        <label>
+            @Html.CheckBoxFor(m => m.isSubscribed) Get all the newest articles?
+        </label>
+    </div>
+
+
+    @Html.HiddenFor(m => m.Id)
+
+
+    <button type="submit" class="btn btn-primary">Save</button>
+
+
+}
