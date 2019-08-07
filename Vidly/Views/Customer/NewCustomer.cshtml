@@ -7,33 +7,44 @@
 
 @using (Html.BeginForm("Save", "Customer"))
 {
+    @Html.ValidationSummary()
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
         @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Bith)
         @Html.TextBoxFor(m => m.Bith, "{0:dd-MMM-yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Bith)
     </div>
 
     //if want to create new customer with membershiptype, change membershiptype property in customer to membershiptypeId
     <div class="form-group">
         @Html.LabelFor(m => m.MemberShipTypeId)
         @Html.DropDownListFor(m => m.MemberShipTypeId, new SelectList(ViewBag.MemberShipTypes, "Id", "Name"), "Select membership type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MemberShipTypeId)
     </div>
 
     <div class="form-check">
         <label>
             @Html.CheckBoxFor(m => m.isSubscribed) Get all the newest articles?
         </label>
+        @Html.ValidationMessageFor(m => m.isSubscribed)
     </div>
 
 
     @Html.HiddenFor(m => m.Id)
 
-
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 
 
 }
+
+@section scripts
+ {
+    @Scripts.Render("~/bundles/jqueryval");
+}
+

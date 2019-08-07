@@ -60,19 +60,12 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult MovieSaving(Movie movie)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    var genres = _context.Genres.ToList();
-
-            //    ViewBag.Genres = genres;
-            //    ViewBag.Movie = movie;
-
-            //    return View("MovieForm", movie);
-            //}
-         
-                if (movie.Id == 0)
+            if (ModelState.IsValid)
+            {
+                if (movie.Id == null)
                 {
                     if (movie.GenreId != null)
                         movie.Genre = _context.Genres.Single(c => c.Id == movie.GenreId);
@@ -92,6 +85,19 @@ namespace Vidly.Controllers
                 _context.SaveChanges();
 
                 return RedirectToAction("MovieList", "Movie");
+            }
+
+            else
+            {
+                var genres = _context.Genres.ToList();
+
+                ViewBag.Genres = genres;
+                ViewBag.Movie = movie;
+
+                return View("MovieForm", movie);
+            }
+         
+            
 
         }
         

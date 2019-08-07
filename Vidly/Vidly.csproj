@@ -267,6 +267,34 @@
     <Compile Include="Migrations\201908070348350_addMovieAnnotation.Designer.cs">
       <DependentUpon>201908070348350_addMovieAnnotation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908070445543_ChangeCustomerProperty.cs" />
+    <Compile Include="Migrations\201908070445543_ChangeCustomerProperty.Designer.cs">
+      <DependentUpon>201908070445543_ChangeCustomerProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070451138_ChangeCustomerProperty1.cs" />
+    <Compile Include="Migrations\201908070451138_ChangeCustomerProperty1.Designer.cs">
+      <DependentUpon>201908070451138_ChangeCustomerProperty1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070451452_ChangeCustomerProperty2.cs" />
+    <Compile Include="Migrations\201908070451452_ChangeCustomerProperty2.Designer.cs">
+      <DependentUpon>201908070451452_ChangeCustomerProperty2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070726136_ChangeCustomerProperty3.cs" />
+    <Compile Include="Migrations\201908070726136_ChangeCustomerProperty3.Designer.cs">
+      <DependentUpon>201908070726136_ChangeCustomerProperty3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070911055_ChangeMovieProperty.cs" />
+    <Compile Include="Migrations\201908070911055_ChangeMovieProperty.Designer.cs">
+      <DependentUpon>201908070911055_ChangeMovieProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070927329_ChangeMovieProperty1.cs" />
+    <Compile Include="Migrations\201908070927329_ChangeMovieProperty1.Designer.cs">
+      <DependentUpon>201908070927329_ChangeMovieProperty1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070939300_ChangeMovieProperty2.cs" />
+    <Compile Include="Migrations\201908070939300_ChangeMovieProperty2.Designer.cs">
+      <DependentUpon>201908070939300_ChangeMovieProperty2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -274,6 +302,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
+    <Compile Include="Models\Min18YearsOldIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -427,6 +456,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908070348350_addMovieAnnotation.resx">
       <DependentUpon>201908070348350_addMovieAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070445543_ChangeCustomerProperty.resx">
+      <DependentUpon>201908070445543_ChangeCustomerProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070451138_ChangeCustomerProperty1.resx">
+      <DependentUpon>201908070451138_ChangeCustomerProperty1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070451452_ChangeCustomerProperty2.resx">
+      <DependentUpon>201908070451452_ChangeCustomerProperty2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070726136_ChangeCustomerProperty3.resx">
+      <DependentUpon>201908070726136_ChangeCustomerProperty3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070911055_ChangeMovieProperty.resx">
+      <DependentUpon>201908070911055_ChangeMovieProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070927329_ChangeMovieProperty1.resx">
+      <DependentUpon>201908070927329_ChangeMovieProperty1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070939300_ChangeMovieProperty2.resx">
+      <DependentUpon>201908070939300_ChangeMovieProperty2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

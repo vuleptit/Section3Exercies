@@ -60,26 +60,39 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
-            if (customer.Id == 0)
+            if (!ModelState.IsValid)
             {
-                customer.MemberShipType =
-                    _context.MemberShipTypes.Single(c => c.Id == customer.MemberShipTypeId);
-                _context.Customers.Add(customer);
+                var memberShipTypes = _context.MemberShipTypes.ToList();
+
+                ViewBag.MemberShipTypes = memberShipTypes;
+                ViewBag.Customer = customer;
+
+                return View("NewCustomer", customer);
             }
             else
             {
-                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
-                customerInDb.Name = customer.Name;
-                customerInDb.Bith = customer.Bith;
-                customerInDb.isSubscribed = customer.isSubscribed;
-                customerInDb.MemberShipTypeId = customer.MemberShipTypeId;
-                customerInDb.MemberShipType = customer.MemberShipType;
-            }
-            _context.SaveChanges();
+                if (customer.Id == null)
+                {
+                    customer.MemberShipType =
+                        _context.MemberShipTypes.Single(c => c.Id == customer.MemberShipTypeId);
+                    _context.Customers.Add(customer);
+                }
+                else
+                {
+                    var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                    customerInDb.Name = customer.Name;
+                    customerInDb.Bith = customer.Bith;
+                    customerInDb.isSubscribed = customer.isSubscribed;
+                    customerInDb.MemberShipTypeId = customer.MemberShipTypeId;
+                    customerInDb.MemberShipType = customer.MemberShipType;
+                }
+                _context.SaveChanges();
 
-            return RedirectToAction("CustomerList", "Customer");
+                return RedirectToAction("CustomerList", "Customer");
+            }
         }
 
         public ActionResult CustomerEdit(int id)
