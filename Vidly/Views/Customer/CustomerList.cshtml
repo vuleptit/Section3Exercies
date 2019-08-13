@@ -6,30 +6,68 @@
 <h2>@ViewBag.Title.</h2>
 
 
-<a href="/Customer/NewCustomer"><button class="btn btn-primary">New Customer</button></a>
-<hr/>
-<table>
-    <tr>
-        <td>Name</td>
-        <td>Membership Type</td>
-        <td>Discount Rate</td>
-    </tr>
+<!--<a href="/Customer/NewCustomer"><button class="btn btn-primary">New Customer</button></a>-->
+<hr />
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Discount Rate</td>
+            <td>Delete</td>
 
+        </tr>
+    </thead>
+    
+    <tbody>
     @foreach (Customer customer in ViewBag.Customers)
     {
-<tr>
-    <td><a href="/Customer/CustomerDetail/@customer.Id">@customer.Name</a></td>
-    @if (customer.MemberShipType != null)
-    {
-        <td>@customer.MemberShipType.Name</td>
-        <td>@customer.MemberShipType.Discount%</td>
-    }
-    else
-    {
-        <td>null</td>
-        <td>null</td>
-    }
+        <tr>
+            <td><a href="/Customer/CustomerDetail/@customer.Id">@customer.Name</a></td>
+            @if (customer.MemberShipType != null)
+            {
+                <td>@customer.MemberShipType.Discount%</td>
+            }
+            else
+            {
+                <td>null</td>
+                <td>null</td>
+            }
 
-</tr>
+            <td>
+                <button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button>
+            </td>
+
+        </tr>
     }
+    </tbody>
+    
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $("#customers").DataTable();
+
+            $("#customers").on("click", ".js-delete",
+                function () {
+                    var button = $(this);
+
+                    bootbox.confirm("Are you sure to delete this customer?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/customer/" + button.attr("data-customer-id"),
+                                    method: "DELETE",
+                                    success: function () {
+                                        button.parents("tr").remove();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
+}
+
