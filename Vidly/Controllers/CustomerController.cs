@@ -47,7 +47,7 @@ namespace Vidly.Controllers
             var customers = _context.Customers.Include(c => c.MemberShipType).ToList();
             ViewBag.Customers = customers;
 
-            return View("CustomerList");
+            return View();
         }
 
         public ActionResult NewCustomer()

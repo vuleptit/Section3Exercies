@@ -1,4 +1,5 @@
 ﻿@using Vidly.Models;
+@using System.Data.Entity;
 
 @{
     ViewBag.Title = "Customers";
@@ -6,7 +7,7 @@
 <h2>@ViewBag.Title.</h2>
 
 
-<!--<a href="/Customer/NewCustomer"><button class="btn btn-primary">New Customer</button></a>-->
+<a href="/Customer/NewCustomer"><button class="btn btn-primary">New Customer</button></a>
 <hr />
 <table id="customers" class="table table-bordered table-hover">
     <thead>
@@ -19,26 +20,7 @@
     </thead>
     
     <tbody>
-    @foreach (Customer customer in ViewBag.Customers)
-    {
-        <tr>
-            <td><a href="/Customer/CustomerDetail/@customer.Id">@customer.Name</a></td>
-            @if (customer.MemberShipType != null)
-            {
-                <td>@customer.MemberShipType.Discount%</td>
-            }
-            else
-            {
-                <td>null</td>
-                <td>null</td>
-            }
-
-            <td>
-                <button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button>
-            </td>
-
-        </tr>
-    }
+    
     </tbody>
     
 </table>
@@ -48,7 +30,31 @@
     <script>
         $(document).ready(function () {
 
-            $("#customers").DataTable();
+            var table = $("#customers").DataTable({
+                ajax: {
+                    url: "/api/customer/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function(data, type, customer) {
+                            return "<a href = '/Customer/CustomerEdit/" + customer.id + "'>" + customer.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "memberShipType.name"
+                    },
+                    {
+                        data: "id",
+                        render: function(data) {
+                            return "<button class  = 'btn-link js-delete' data-customer-id =" +
+                                data +
+                                ">Delete</button>";
+                        }
+                    }
+                ]
+            });
 
             $("#customers").on("click", ".js-delete",
                 function () {
@@ -61,7 +67,7 @@
                                     url: "/api/customer/" + button.attr("data-customer-id"),
                                     method: "DELETE",
                                     success: function () {
-                                        button.parents("tr").remove();
+                                        table.row(button.parents("tr")).remove().draw();
                                     }
                                 });
                             }
