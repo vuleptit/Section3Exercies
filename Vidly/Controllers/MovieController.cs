@@ -30,6 +30,11 @@ namespace Vidly.Controllers
 
         public ActionResult MovieList()
         {
+            if (!User.IsInRole("CanManageMovie"))
+            {
+                return Content("You do not have permission to access this.");
+            }
+
             var movies = _context.Movies.Include(c => c.Genre).ToList();
 
             ViewBag.Movies = movies;
@@ -39,6 +44,11 @@ namespace Vidly.Controllers
 
         public ActionResult MovieDetail(int id)
         {
+            if (!User.IsInRole("CanManageMovie"))
+            {
+                return Content("You do not have permission to access this.");
+            }
+
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
 
             ViewBag.Movie = movie;
@@ -52,6 +62,11 @@ namespace Vidly.Controllers
 
         public ActionResult NewMovie()
         {
+            if (!User.IsInRole("CanManageMovie"))
+            {
+                return Content("You do not have permission to access this.");
+            }
+
             var genres = _context.Genres.ToList();
 
             ViewBag.Genres = genres;
@@ -104,6 +119,11 @@ namespace Vidly.Controllers
 
         public ActionResult MovieEdit(int id)
         {
+            if (!User.IsInRole("CanManageMovie"))
+            {
+                return Content("You do not have permission to access this.");
+            }
+
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
             var genres = _context.Genres.ToList();
 

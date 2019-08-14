@@ -315,6 +315,22 @@
     <Compile Include="Migrations\201908070939300_ChangeMovieProperty2.Designer.cs">
       <DependentUpon>201908070939300_ChangeMovieProperty2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908140840162_SeedUsers.cs" />
+    <Compile Include="Migrations\201908140840162_SeedUsers.Designer.cs">
+      <DependentUpon>201908140840162_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908140904065_AddDrivingLicenseToUser.cs" />
+    <Compile Include="Migrations\201908140904065_AddDrivingLicenseToUser.Designer.cs">
+      <DependentUpon>201908140904065_AddDrivingLicenseToUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908140936288_AddDrivingLicenseToUser-force.cs" />
+    <Compile Include="Migrations\201908140936288_AddDrivingLicenseToUser-force.Designer.cs">
+      <DependentUpon>201908140936288_AddDrivingLicenseToUser-force.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908141506533_AddPhoneToAccountRegister.cs" />
+    <Compile Include="Migrations\201908141506533_AddPhoneToAccountRegister.Designer.cs">
+      <DependentUpon>201908141506533_AddPhoneToAccountRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -672,6 +688,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908070939300_ChangeMovieProperty2.resx">
       <DependentUpon>201908070939300_ChangeMovieProperty2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140840162_SeedUsers.resx">
+      <DependentUpon>201908140840162_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140904065_AddDrivingLicenseToUser.resx">
+      <DependentUpon>201908140904065_AddDrivingLicenseToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908140936288_AddDrivingLicenseToUser-force.resx">
+      <DependentUpon>201908140936288_AddDrivingLicenseToUser-force.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908141506533_AddPhoneToAccountRegister.resx">
+      <DependentUpon>201908141506533_AddPhoneToAccountRegister.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
