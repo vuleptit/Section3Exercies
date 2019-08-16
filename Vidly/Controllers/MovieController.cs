@@ -78,9 +78,9 @@ namespace Vidly.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult MovieSaving(Movie movie)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || movie.Id == 0)
             {
-                if (movie.Id == null)
+                if (movie.Id == 0)
                 {
                     if (movie.GenreId != null)
                         movie.Genre = _context.Genres.Single(c => c.Id == movie.GenreId);

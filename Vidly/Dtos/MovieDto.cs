@@ -28,5 +28,6 @@ namespace Vidly.Dtos
         [Range(1, 20)]
         [Display(Name = "Number in the Stock")]
         public int NumInStock { get; set; }
+        public int NumAvailable { get; set; }
     }
 }
