@@ -17,6 +17,7 @@ namespace Vidly.Dtos
         [Required]
         public Movie Movie { get; set; }
 
+        [Required]
         public DateTime DateRented;
         public DateTime? DateReturned { get; set; }
     }

@@ -48,23 +48,23 @@
       "<form class='bootbox-form'></form>",
     inputs: {
       text:
-        "<input class='bootbox-input bootbox-input-text form-control' autocomplete=off type=text />",
+        "<input class='bootbox-input bootbox-input-text form-control' autocomplete=off type=text/>",
       textarea:
         "<textarea class='bootbox-input bootbox-input-textarea form-control'></textarea>",
       email:
-        "<input class='bootbox-input bootbox-input-email form-control' autocomplete='off' type='email' />",
+        "<input class='bootbox-input bootbox-input-email form-control' autocomplete='off' type='email'/>",
       select:
         "<select class='bootbox-input bootbox-input-select form-control'></select>",
       checkbox:
-        "<div class='checkbox'><label><input class='bootbox-input bootbox-input-checkbox' type='checkbox' /></label></div>",
+        "<div class='checkbox'><label><input class='bootbox-input bootbox-input-checkbox' type='checkbox'/></label></div>",
       date:
-        "<input class='bootbox-input bootbox-input-date form-control' autocomplete=off type='date' />",
+        "<input class='bootbox-input bootbox-input-date form-control' autocomplete=off type='date'/>",
       time:
-        "<input class='bootbox-input bootbox-input-time form-control' autocomplete=off type='time' />",
+        "<input class='bootbox-input bootbox-input-time form-control' autocomplete=off type='time'/>",
       number:
-        "<input class='bootbox-input bootbox-input-number form-control' autocomplete=off type='number' />",
+        "<input class='bootbox-input bootbox-input-number form-control' autocomplete=off type='number'/>",
       password:
-        "<input class='bootbox-input bootbox-input-password form-control' autocomplete='off' type='password' />"
+        "<input class='bootbox-input bootbox-input-password form-control' autocomplete='off' type='password'/>"
     }
   };
 

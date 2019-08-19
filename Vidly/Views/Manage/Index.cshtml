@@ -8,7 +8,7 @@
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
     <h4>Change your account settings</h4>
-    <hr />
+    <hr/>
     <dl class="dl-horizontal">
         <dt>Password:</dt>
         <dd>
@@ -42,12 +42,12 @@
                 @(Model.PhoneNumber ?? "None")
                 @if (Model.PhoneNumber != null)
                 {
-                    <br />
+                    <br/>
                     <text>[&nbsp;&nbsp;@Html.ActionLink("Change", "AddPhoneNumber")&nbsp;&nbsp;]</text>
                     using (Html.BeginForm("RemovePhoneNumber", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
-                        <text>[<input type="submit" value="Remove" class="btn-link" />]</text>
+                        <text>[<input type="submit" value="Remove" class="btn-link"/>]</text>
                     }
                 }
                 else
@@ -68,7 +68,7 @@
                     {
                         @Html.AntiForgeryToken()
                         <text>Enabled
-                        <input type="submit" value="Disable" class="btn btn-link" />
+                        <input type="submit" value="Disable" class="btn btn-link"/>
                         </text>
                     }
                 }
@@ -78,7 +78,7 @@
                     {
                         @Html.AntiForgeryToken()
                         <text>Disabled
-                        <input type="submit" value="Enable" class="btn btn-link" />
+                        <input type="submit" value="Enable" class="btn btn-link"/>
                         </text>
                     }
                 }*@

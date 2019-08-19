@@ -16,16 +16,12 @@ namespace Vidly.Controllers
 
         public ActionResult About()
         {
+            throw new Exception();
+
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult CustomerList()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View("CustomerList");
-        }
     }
 }

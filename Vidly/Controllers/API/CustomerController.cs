@@ -30,11 +30,15 @@ namespace Vidly.Controllers.API
         //GET /api/customers
         [System.Web.Http.HttpGet]
         [System.Web.Http.ActionName("all")]
-        public IHttpActionResult GetCustomers()
+        public IHttpActionResult GetCustomers(String query = null)
         {
-            var customerDtos = _context.Customers.
-                Include(c => c.MemberShipType).
-                ToList()
+            var customersQuery = _context.Customers
+                .Include(c => c.MemberShipType);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+
+            var customerDtos = customersQuery.ToList()
                 .Select(Mapper.Map<Customer, CustomerDto>);
 
             return Ok(customerDtos);
